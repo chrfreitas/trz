@@ -22,4 +22,4 @@ RUN gem install rails
 RUN gem install bundler
 RUN bundle install
 
-CMD ["rails", "s"]
+CMD ["rails", "s", "-b", "0.0.0.0"]
