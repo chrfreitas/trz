@@ -1,10 +1,17 @@
 module Types
   class MutationType < Types::BaseObject
-    # TODO: remove me
-    field :test_field, String, null: false,
-      description: "An example field added by the generator"
-    def test_field
-      "Hello World"
+    field :create_survivor, Types::SurvivorType, "Create a new survivor", null: false do
+      argument :name, String, required: true
+      argument :age, Int, required: true
+      argument :last_location, String, required: false
+      argument :gender, String, required: true
+    end
+  
+    def create_survivor(params)
+      puts params
     end
   end
 end
+
+# Follow this structure to create a mutation
+# https://graphql-ruby.org/mutations/mutation_classes
