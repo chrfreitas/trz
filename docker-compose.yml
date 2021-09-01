@@ -2,6 +2,8 @@ version: "3.9"
 services:
   app:
     build: .
+    stdin_open: true
+    tty: true
     ports:
       - "3000:3000"
     volumes:
@@ -17,4 +19,3 @@ services:
       - database_volume:/var/lib/postgresql/data
 volumes:
   database_volume:
-

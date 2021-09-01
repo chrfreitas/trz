@@ -8,10 +8,13 @@ module Types
     end
   
     def create_survivor(params)
-      puts params
+      survivor = Survivor.new(params)
+      
+      if survivor.save 
+        survivor
+      else 
+        GraphQL::ExecutionError.new "It was not possible to save the survivor!"
+      end
     end
   end
 end
-
-# Follow this structure to create a mutation
-# https://graphql-ruby.org/mutations/mutation_classes
